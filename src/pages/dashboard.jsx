@@ -29,7 +29,7 @@ function Dashboard() {
   sx={{
     width: "100%", // Prevent extra width
     height: "100vh",
-    backgroundColor: "#2b2b2b",
+    backgroundColor: "#f4f4ff",
     display: "flex",
     justifyContent: "center",
     padding: "20px", // Add padding to avoid content sticking to edges
@@ -44,7 +44,7 @@ function Dashboard() {
     }}
   >
     {/* All Card Components */}
-    <Card sx={{ backgroundColor: "#FAF9F6", color: "black", height: "500px", borderRadius: "1rem", gridColumn: "span 2" }}>
+    <Card sx={{ backgroundColor: "white", color: "black", height: "400px", borderRadius: "1rem", gridColumn: "span 2" }}>
       <Typography fontWeight="bold" variant="h6" align="center" mt={"15px"} display="flex" justifyContent="center" alignItems="center" gap={1}>
         <PersonIcon />
         User Information
@@ -54,7 +54,7 @@ function Dashboard() {
       </CardContent>
     </Card>
 
-    <Card sx={{ backgroundColor: "#FAF9F6", color: "black", height: "500px", borderRadius: "1rem" }}>
+    <Card sx={{ backgroundColor: "white", color: "black", height: "500px", borderRadius: "1rem" }}>
       <Typography variant="h6" align="center" mt={"15px"} display="flex" justifyContent="center" alignItems="center" gap={1} fontWeight="bold">
         <GroupsIcon />
         Audits
@@ -64,7 +64,7 @@ function Dashboard() {
       </CardContent>
     </Card>
 
-    <Card sx={{ backgroundColor: "#FAF9F6", color: "black", height: "500px", borderRadius: "1rem" }}>
+    <Card sx={{ backgroundColor: "white", color: "black", height: "500px", borderRadius: "1rem" }}>
       <Typography variant="h6" align="center" mt={"15px"} display="flex" justifyContent="center" alignItems="center" gap={1} fontWeight="bold">
         <CodeIcon />
         Skills
@@ -74,7 +74,7 @@ function Dashboard() {
       </CardContent>
     </Card>
 
-    <Card sx={{ backgroundColor: "#FAF9F6", color: "black", height: "500px", borderRadius: "1rem" }}>
+    <Card sx={{ backgroundColor: "white", color: "black", height: "500px", borderRadius: "1rem" }}>
       <Typography variant="h6" align="center" mt={"15px"} display="flex" justifyContent="center" alignItems="center" gap={1} fontWeight="bold">
         <TrendingUpIcon />
         XP Per Month
@@ -84,7 +84,7 @@ function Dashboard() {
       </CardContent>
     </Card>
 
-    <Card sx={{ backgroundColor: "#FAF9F6", color: "black", height: "500px", borderRadius: "1rem" }}>
+    <Card sx={{ backgroundColor: "white", color: "black", height: "500px", borderRadius: "1rem" }}>
       <Typography fontWeight="bold" variant="h6" align="center" mt={"15px"} display="flex" justifyContent="center" alignItems="center" gap={1}>
         <PaidIcon />
         Total XP
