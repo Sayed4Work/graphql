@@ -42,6 +42,13 @@ export function Profile() {
         if (gender?.toLowerCase() === "female") return <FaVenus style={{ color: "pink" }} />;
         return <FaQuestion style={{ color: "gray" }} />;
     };
+    const imageId = String(userData?.attrs?.["pro-picUploadId"] || "");
+    useEffect(() => {
+        if (imageId) {
+            const proPic = getProPic(imageId);
+            console.log(proPic);
+        }
+    }, [imageId]);
 
     return (
         <div style={{ 
@@ -53,14 +60,14 @@ export function Profile() {
           borderRadius: "8px",
           boxShadow: "2px 2px 10px rgba(0,0,0,0.1)",
           color: "black",
-          fontSize: "1.4rem"
+          fontSize: "0.8rem"
         }}>
           <p><strong>Full name: </strong>{userData?.attrs?.firstName} {userData?.attrs?.lastName}</p>
           <p><strong>Username: </strong>{userData?.login}</p>
     
               {/* Country Flag appears in the last column */}
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <strong>Country: </strong> <CountryFlag country={country} />
+          <div style={{ display: "flex", alignItems: "center", gap: "10px"}}>
+             <CountryFlag country={country} />
           </div>
 
           <p style={{ display: "flex", alignItems: "center", gap: "5px" }}>
@@ -76,3 +83,42 @@ export function Profile() {
         emergencyFirstName, emergencyAffiliation, addressComplementStreet, general-conditionsAccepted} */
     //TODO: create HTML for user info
 }
+
+
+ // function to fetch the profile picture
+ async function getProPic(imageId) {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+        console.error("Token (jwt) not found");
+        return null;
+    }
+    console.log(imageId);
+    // Properly encode the parameters
+    const encodedFileId = encodeURIComponent(imageId);
+    const encodedToken = encodeURIComponent(token);
+
+    const API_URL = `https://learn.reboot01.com/api/storage?fileId=${encodedFileId}&token=${encodedToken}`;
+
+    console.log(API_URL);
+    try {
+        const response = await fetch(API_URL, {
+            method: "GET", // Specify the request method
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${encodedToken}`,
+            },
+        });
+    
+        // Check if the response is successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        // Parse the JSON response
+        const data = await response.json();
+        console.log("Image fetched successfully:", data);
+    } catch (error) {
+        console.error("Error fetching user picture:", error);
+    }
+}
+
