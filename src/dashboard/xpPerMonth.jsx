@@ -56,7 +56,7 @@ function XpPerMonth() {
           <LineChart
             xAxis={[{ scaleType: "point", data: monthlyXp.map((d) => d.month) }]}
             series={[{ data: monthlyXp.map((d) => d.xp), curve: "linear" , color: "rgba(2, 154, 2, 0.6)" }]}
-            width={800}
+            width={600}
             height={400}
           />
         </div>

@@ -69,13 +69,14 @@ const Login = () => {
         justifyContent: "center",
         backgroundColor: "#f4f4ff", // Light gray background
       }}
+      className="login-page"
     >
       <Container maxWidth="xs">
         <Box
           className="shadow-lg rounded-lg bg-white p-8"
-          sx={{ textAlign: "center" }}
+          sx={{ textAlign: "center", padding: "20px", borderRadius: "1rem"  }}
         >
-          <Typography variant="h2" gutterBottom>
+          <Typography variant="h2" gutterBottom color="black">
             GraphQL
           </Typography>
 

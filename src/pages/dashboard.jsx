@@ -29,7 +29,7 @@ function Dashboard() {
   sx={{
     width: "100%", // Prevent extra width
     height: "100vh",
-    backgroundColor: "#f4f4ff",
+    backgroundColor: "#2b2b2b",
     display: "flex",
     justifyContent: "center",
     padding: "20px", // Add padding to avoid content sticking to edges
@@ -44,7 +44,7 @@ function Dashboard() {
     }}
   >
     {/* All Card Components */}
-    <Card sx={{ backgroundColor: "white", color: "black", height: "400px", borderRadius: "1rem", gridColumn: "span 2" }}>
+    <Card sx={{ backgroundColor: "white", color: "black", height: "300px", borderRadius: "1rem", gridColumn: "span 2" }}>
       <Typography fontWeight="bold" variant="h6" align="center" mt={"15px"} display="flex" justifyContent="center" alignItems="center" gap={1}>
         <PersonIcon />
         User Information
@@ -79,7 +79,7 @@ function Dashboard() {
         <TrendingUpIcon />
         XP Per Month
       </Typography>
-      <CardContent sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%" }}>
+      <CardContent sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
         <XpPerMonth />
       </CardContent>
     </Card>
