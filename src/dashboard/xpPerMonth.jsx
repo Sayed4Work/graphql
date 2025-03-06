@@ -26,7 +26,6 @@ function XpPerMonth() {
 
       try {
         const data = await queryData(query);
-        console.log(data);
         if (data && data.length > 0) {
           const transactions = data;
 
@@ -34,7 +33,6 @@ function XpPerMonth() {
           const totalxp = getTotalXp(transactions);
           setMonthlyXp(monthlyXp);
           setTotalXp(totalxp);
-          console.log(monthlyXp);
         } else {
           setError("Could not fetch XP data");
         }

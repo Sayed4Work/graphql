@@ -25,7 +25,6 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("username:", username, "Password:", password);
   
     const credentials = btoa(`${username}:${password}`); // Encode in Base64
 

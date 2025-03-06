@@ -18,7 +18,6 @@ export function Skills() {
 
       try {
         const data = await queryData(query);
-        console.log("Fetched Data:", data);
         
         // Ensure we store only the transaction array
         setSkills(data || []);
@@ -49,7 +48,6 @@ export function Skills() {
       }
     }
 
-    console.log("Calculated Totals:", totals); // Debugging output
     return Object.entries(totals).map(([type, amount]) => ({
       type: type.replace("skill_", ""), // Remove "skill_"
       amount
