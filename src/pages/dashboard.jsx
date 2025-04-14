@@ -18,13 +18,13 @@ function Dashboard() {
 
   const handleLogout = () => {
     localStorage.removeItem("jwt");
-    navigate("/");
+    navigate("/login");
   };
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (!token) {
-      navigate("/");
+      navigate("/login");
     }
   }, [navigate]);
 
