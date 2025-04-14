@@ -20,8 +20,12 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate(); // Initialize navigation hook
   const [showPassword, setShowPassword] = useState(false);
-
   const handleClickShowPassword = () => setShowPassword((prev) => !prev);
+  const token = localStorage.getItem("jwt"); 
+  if (token) {
+      // **Redirect to Dashboard**
+      navigate("/dashboard");
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
