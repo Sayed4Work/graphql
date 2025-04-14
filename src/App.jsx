@@ -10,7 +10,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/dashboard"
+          element={
+            localStorage.getItem("jwt") ? <Dashboard /> : <Navigate to="/login" replace />
+          }
+        />       
         <Route path="*" element={<NotFoundPage />} /> {/* Handles all other paths */}
       </Routes>
     </Router>

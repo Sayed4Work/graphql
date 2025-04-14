@@ -21,13 +21,6 @@ function Dashboard() {
     navigate("/login");
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (!token) {
-      navigate("/login");
-    }
-  }, [navigate]);
-
   return (
     <Box
       sx={{
