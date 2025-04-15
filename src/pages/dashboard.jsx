@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Profile } from "../dashboard/profile.jsx";
 import { Audit } from "../dashboard/audit.jsx";
 import { Skills } from "../dashboard/skills.jsx";
@@ -16,10 +16,17 @@ import LogoutIcon from "@mui/icons-material/Logout";
 function Dashboard() {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem("jwt");
-    navigate("/login");
-  };
+    useEffect(() => {
+      const token = localStorage.getItem("jwt");
+      if (!token) {
+        navigate("/login", { replace: true });
+      }
+    }, [navigate]);
+
+      const handleLogout = () => {
+      localStorage.removeItem("jwt");
+      navigate("/login", { replace: true });
+    };
 
   return (
     <Box

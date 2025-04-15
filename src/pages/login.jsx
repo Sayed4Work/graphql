@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import {
   FormControl,
@@ -22,18 +22,16 @@ const Login = () => {
   const navigate = useNavigate(); // Initialize navigation hook
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((prev) => !prev);
-  const [checkingToken, setCheckingToken] = useState(true);
-
+  const location = useLocation();
+  
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    if (token) {
+    if (token && location.pathname !== "/dashboard") {
+      console.log(location.pathname);
       navigate("/dashboard", { replace: true });
-    } else {
-      setCheckingToken(false); // Only show login if no token
     }
-  }, []);
-  
-  if (checkingToken) return null; 
+  }, [navigate, location.pathname]);
+
   
 
   const handleSubmit = (e) => {

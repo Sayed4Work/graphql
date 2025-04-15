@@ -13,7 +13,7 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            localStorage.getItem("jwt") ? <Dashboard /> : <Navigate to="/login" replace />
+            <Dashboard />
           }
         />       
         <Route path="*" element={<NotFoundPage />} /> {/* Handles all other paths */}
