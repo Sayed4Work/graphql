@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import {
   FormControl,
   InputLabel,
@@ -21,11 +22,13 @@ const Login = () => {
   const navigate = useNavigate(); // Initialize navigation hook
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((prev) => !prev);
-  const token = localStorage.getItem("jwt"); 
-  if (token) {
-      // **Redirect to Dashboard**
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
       navigate("/dashboard");
-  }
+    }
+  }, [navigate]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
