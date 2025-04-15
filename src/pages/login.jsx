@@ -22,13 +22,18 @@ const Login = () => {
   const navigate = useNavigate(); // Initialize navigation hook
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((prev) => !prev);
+  const [checkingToken, setCheckingToken] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
-      navigate("/dashboard", { replace: true }); // prevents back button redirect loop
+      navigate("/dashboard", { replace: true });
+    } else {
+      setCheckingToken(false); // Only show login if no token
     }
   }, []);
+  
+  if (checkingToken) return null; 
   
 
   const handleSubmit = (e) => {
