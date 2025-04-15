@@ -19,7 +19,7 @@ function Dashboard() {
     useEffect(() => {
       const token = localStorage.getItem("jwt");
       if (!token) {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
       }
     }, [navigate]);
 

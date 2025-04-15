@@ -7,7 +7,7 @@ export async function queryData(query, variables) {
 
   if (!token) {
     console.error("No token found. Please log in.");
-    window.location.href = "/login";
+    window.location.href = "/";
     return null;
   }
 
@@ -28,7 +28,7 @@ export async function queryData(query, variables) {
     const data = response.data?.data;
 
     if (!data) {
-      window.location.href = "/login";
+      window.location.href = "/";
       return null;
     }
 
