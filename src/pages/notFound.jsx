@@ -6,7 +6,7 @@ function NotFoundPage() {
     <div className="notfound-container">
       <h1>404</h1>
       <p>Oops! The page you're looking for doesn't exist.</p>
-      <Link to="/graphql/login/" className="notfound-btn">Back to Home</Link>
+      <Link to="/login" className="notfound-btn">Back to Home</Link>
     </div>
   );
 }
