@@ -7,7 +7,7 @@ export async function queryData(query, variables) {
 
   if (!token) {
     console.error("No token found. Please log in.");
-    window.location.href = "/";
+    window.location.href = "/graphql";
     return null;
   }
 
@@ -28,7 +28,7 @@ export async function queryData(query, variables) {
     const data = response.data?.data;
 
     if (!data) {
-      window.location.href = "/";
+      window.location.href = "/graphql";
       return null;
     }
 
@@ -44,7 +44,7 @@ export async function queryData(query, variables) {
     if (error.response && (error.response.status === 401 || error.response.status === 403)) {
       // Handle token tampering/expiration
       localStorage.removeItem("jwt");
-      window.location.href = "/"; // Redirect to login
+      window.location.href = "/graphql"; // Redirect to login
     } else {
       console.error("Error fetching user data:", error);
     }
