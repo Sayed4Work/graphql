@@ -26,9 +26,10 @@ const Login = () => {
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     if (token) {
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true }); // prevents back button redirect loop
     }
-  }, [navigate]);
+  }, []);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
