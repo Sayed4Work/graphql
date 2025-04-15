@@ -19,7 +19,7 @@ function Dashboard() {
     useEffect(() => {
       const token = localStorage.getItem("jwt");
       if (!token) {
-        navigate("/graphql", { replace: true });
+        navigate("/", { replace: true });
       }
     }, [navigate]);
 
